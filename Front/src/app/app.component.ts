@@ -4,10 +4,11 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { ConsignaComponent } from './shared/components/consigna/consigna.component';
 
 @Component({
-  selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponent, ConsignaComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    selector: 'app-root',
+    imports: [RouterOutlet, NavbarComponent, ConsignaComponent],
+    templateUrl: './app.component.html',
+    standalone: true,
+    styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'Front';

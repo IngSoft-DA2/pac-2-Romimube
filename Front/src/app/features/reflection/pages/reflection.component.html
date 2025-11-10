@@ -1,0 +1,21 @@
+﻿<h1>Reflection</h1>
+
+<button mat-flat-button (click)="onLoad()" [disabled]="reflectionService.isLoading()">
+  Cargar importers
+</button>
+
+<div *ngIf="reflectionService.isLoading()">
+  Cargando...
+</div>
+
+<div *ngIf="reflectionService.isError()">
+  Error: {{ reflectionService.isError() }}
+</div>
+
+<div *ngIf="!reflectionService.isLoading() && !reflectionService.isError() && reflectionService.importers().length === 0">
+  No se encontraron DLLs.
+</div>
+
+<ul *ngIf="!reflectionService.isLoading() && !reflectionService.isError() && reflectionService.importers().length">
+  <li *ngFor="let dll of reflectionService.importers()">{{ dll }}</li>
+</ul>
